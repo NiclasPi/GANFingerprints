@@ -6,6 +6,16 @@ ICCV 2019
 
 ### [paper](https://arxiv.org/pdf/1811.08180.pdf) | [project page](https://ningyu1991.github.io/projects/GANFingerprints.html) | [poster](https://ningyu1991.github.io/homepage_files/poster_GANFingerprints.pdf) | [media coverage in Chinese](https://mp.weixin.qq.com/s/se1ZyR_gfzliWB5X72OZ1Q)
 
+## Updates (2024-11-20)
+
+- Make MMGAN, ProGAN, and SNGAN implementations compatible with Tensorflow v2.x using the `tf_upgrade_v2` script 
+  in `--mode=SAFFETY`. The updated implementations mainly use legacy v1 APIs (`tensorflow.compat.v1`).
+- Redefine dependencies in `environment.yaml`.
+- Support **CUDA 11.3.1** and **cuDNN 8.2.1.32**.
+- **Note:** Only the MMGAN, ProGAN and SNGAN inference scripts were tested after the updates!
+
+___
+
 <img src='fig/teaser.png' width=800>
 
 ## GAN fingerprints demo
