@@ -12,7 +12,9 @@ import importlib
 import imp
 import numpy as np
 from collections import OrderedDict
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+tf.disable_eager_execution()
 
 #----------------------------------------------------------------------------
 # Convenience.
@@ -176,9 +178,9 @@ def finalize_autosummaries():
 def _create_autosummary_var(name, value_expr):
     assert not _autosummary_finalized
     v = tf.cast(value_expr, tf.float32)
-    if v.shape.ndims is 0:
+    if v.shape.ndims == 0:
         v = [v, np.float32(1.0)]
-    elif v.shape.ndims is 1:
+    elif v.shape.ndims == 1:
         v = [tf.reduce_sum(v), tf.cast(tf.shape(v)[0], tf.float32)]
     else:
         v = [tf.reduce_sum(v), tf.reduce_prod(tf.cast(tf.shape(v), tf.float32))]
@@ -558,7 +560,10 @@ class Network:
         assert state['version'] == 2
         self.name = state['name']
         self.static_kwargs = state['static_kwargs']
-        self._build_module_src = state['build_module_src']
+
+        # override state['build_module_src'] with current v2 source
+        import networks
+        self._build_module_src = inspect.getsource(networks)
         self._build_func_name = state['build_func_name']
         
         # Parse imported module.
@@ -638,11 +643,17 @@ class Network:
         # Build graph.
         if key not in self._run_cache:
             with absolute_name_scope(self.scope + '/Run'), tf.control_dependencies(None):
-                in_split = list(zip(*[tf.split(x, num_gpus) for x in self.input_templates]))
+                # num_gpus is not the actual number of GPUs on the machine, compute the number physical devices
+                devices = tf.config.list_physical_devices('GPU')
+                if len(devices) == 0:
+                    devices = tf.config.list_physical_devices('CPU')
+                num_gpus = len(devices)
+
+                in_split = list(zip(*[tf.split(x, len(devices)) for x in self.input_templates]))
                 out_split = []
-                for gpu in range(num_gpus):
-                    with tf.device('/gpu:%d' % gpu):
-                        out_expr = self.get_output_for(*in_split[gpu], return_as_list=True, **dynamic_kwargs)
+                for i, device in enumerate(devices):
+                    with tf.device(f'/{device.device_type}:{i}'):
+                        out_expr = self.get_output_for(*in_split[i], return_as_list=True, **dynamic_kwargs)
                         if out_mul != 1.0:
                             out_expr = [x * out_mul for x in out_expr]
                         if out_add != 0.0:

@@ -1,0 +1,137 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 15 files
+Detected 1 issues that require attention
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+File: ProGAN/tfutil.py
+--------------------------------------------------------------------------------
+ProGAN/tfutil.py:331:32: ERROR: Using member tf.contrib.nccl.all_sum in deprecated module tf.contrib. tf.contrib.nccl.all_sum cannot be converted automatically. tf.contrib will not be distributed with TensorFlow 2.0, please consider an alternative in non-contrib TensorFlow, a community-maintained repository such as tensorflow/addons, or fork the required code.
+================================================================================
+Detailed log follows:
+
+================================================================================
+================================================================================
+Input tree: 'ProGAN/'
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/networks.py'
+ outputting to 'ProGAN/networks.py'
+--------------------------------------------------------------------------------
+
+9:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/util_scripts.py'
+ outputting to 'ProGAN/util_scripts.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/dataset.py'
+ outputting to 'ProGAN/dataset.py'
+--------------------------------------------------------------------------------
+
+11:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/tfutil.py'
+ outputting to 'ProGAN/tfutil.py'
+--------------------------------------------------------------------------------
+
+15:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+331:32: ERROR: Using member tf.contrib.nccl.all_sum in deprecated module tf.contrib. tf.contrib.nccl.all_sum cannot be converted automatically. tf.contrib will not be distributed with TensorFlow 2.0, please consider an alternative in non-contrib TensorFlow, a community-maintained repository such as tensorflow/addons, or fork the required code.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/legacy.py'
+ outputting to 'ProGAN/legacy.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/misc.py'
+ outputting to 'ProGAN/misc.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/loss.py'
+ outputting to 'ProGAN/loss.py'
+--------------------------------------------------------------------------------
+
+9:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/config.py'
+ outputting to 'ProGAN/config.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/run.py'
+ outputting to 'ProGAN/run.py'
+--------------------------------------------------------------------------------
+
+11:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/dataset_tool.py'
+ outputting to 'ProGAN/dataset_tool.py'
+--------------------------------------------------------------------------------
+
+16:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/metrics/frechet_inception_distance.py'
+ outputting to 'ProGAN/metrics/frechet_inception_distance.py'
+--------------------------------------------------------------------------------
+
+42:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/metrics/__init__.py'
+ outputting to 'ProGAN/metrics/__init__.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/metrics/ms_ssim.py'
+ outputting to 'ProGAN/metrics/ms_ssim.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/metrics/inception_score.py'
+ outputting to 'ProGAN/metrics/inception_score.py'
+--------------------------------------------------------------------------------
+
+28:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'ProGAN/metrics/sliced_wasserstein.py'
+ outputting to 'ProGAN/metrics/sliced_wasserstein.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
