@@ -9,6 +9,11 @@ base = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(base, '../'))
 from evaluation import gen_images_with_condition
 import yaml
+try:
+    from yaml import CLoader as Loader, CDumper as Dumper
+except ImportError:
+    from yaml import Loader, Dumper
+
 import source.yaml_utils as yaml_utils
 
 
@@ -30,12 +35,19 @@ def main():
     parser.add_argument('--seed', type=int, default=1234)
     parser.add_argument('--num_pngs', type=int, default=100)
     args = parser.parse_args()
+    # Configure save path
+    out = args.results_dir
+    if not os.path.exists(out):
+        os.makedirs(out)
+
+    # Use CUDA device args.gpu (0) # TODO: does not work without GPU
     chainer.cuda.get_device_from_id(args.gpu).use()
-    config = yaml_utils.Config(yaml.load(open(args.config_path)))
+    # Load configuration from yaml
+    config = yaml_utils.Config(yaml.load(open(args.config_path), Loader=Loader))
+
     # Model
     gen = load_models(config)
     gen.to_gpu(args.gpu)
-    out = args.results_dir
     chainer.serializers.load_npz(args.snapshot, gen)
     np.random.seed(args.seed)
     classes = tuple(args.classes) if args.classes is not None else np.arange(0, gen.n_classes, dtype=np.int32)
@@ -50,8 +62,6 @@ def main():
             x = x.reshape((args.rows * h, args.columns * w, 3))
 
             save_path = os.path.join(out, 'SNGAN_%08d.png' % png_idx)
-            if not os.path.exists(out):
-                os.makedirs(out)
             Image.fromarray(x).save(save_path)
 
 
