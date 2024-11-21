@@ -7,7 +7,7 @@ Created on Thu Jan 11 14:11:46 2018
 """
 import os, time, lmdb, io
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from PIL import Image
 from glob import glob
 import matplotlib.pyplot as plt
@@ -120,7 +120,7 @@ class JPEG_128(Pipeline):
         super(JPEG_128, self).__init__(*args, **kwargs)
         #base_size = kwargs.get('base_size', 160)
         #random_crop = kwargs.get('random_crop', 9)
-        files = glob(os.path.join(self.data_dir, '*.png'))
+        files = glob(os.path.join(self.data_dir, '*'))  # match all
 
         filename_queue = tf.train.string_input_producer(files, shuffle=True)
         reader = tf.WholeFileReader()

@@ -98,6 +98,13 @@ class MMD_GAN(object):
                                              self.description)
             if not os.path.exists(self.__dict__[ff]):
                 os.makedirs(self.__dict__[ff])
+
+            # try:
+            #     self.__dict__[target] = os.path.abspath(self.config.__getattr__(target))
+            #     if not os.path.exists(self.__dict__[target]):
+            #         os.makedirs(self.__dict__[target])
+            # except KeyError:
+            #     raise RuntimeError(f'config missing key "{target}"')
             
 
     def build_model(self):
@@ -371,8 +378,8 @@ class MMD_GAN(object):
         print(" [*] Reading checkpoints...")
         ckpt = tf.train.get_checkpoint_state(self.checkpoint_dir)
         if ckpt and ckpt.model_checkpoint_path:
-            ckpt_name = os.path.basename(ckpt.model_checkpoint_path)
-            self.saver.restore(self.sess, os.path.join(self.checkpoint_dir, ckpt_name))
+            #ckpt_name = os.path.basename(ckpt.model_checkpoint_path)
+            #self.saver.restore(self.sess, os.path.join(self.checkpoint_dir, ckpt_name))
             return True
         else:
             return False

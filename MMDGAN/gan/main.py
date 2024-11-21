@@ -3,7 +3,8 @@ import numpy as np
 import core
 from utils.misc import pp, visualize
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 flags = tf.app.flags
 flags.DEFINE_integer("max_iteration", 150000, "Epoch to train [150000]")
@@ -22,7 +23,7 @@ flags.DEFINE_string("dataset", "celebA", "The name of the model fro saving pupos
 flags.DEFINE_string("name", "mmd_test", "The name of dataset [celebA, mnist, lsun, cifar10]")
 flags.DEFINE_string("checkpoint_dir", "checkpoint_mmd", "Directory name to save the checkpoints [checkpoint_mmd]")
 flags.DEFINE_string("sample_dir", "samples_mmd", "Directory name to save the image samples [samples_mmd]")
-flags.DEFINE_string("log_dir", "logs_mmd", "Directory name to save the image samples [logs_mmd]")
+flags.DEFINE_string("log_dir_2", "logs_mmd", "Directory name to save the image samples [logs_mmd]")
 flags.DEFINE_string("data_dir", "./data", "Directory containing datasets [./data]")
 flags.DEFINE_string("architecture", "dcgan", "The name of the architecture [dcgan, g-resnet5, dcgan5]")
 flags.DEFINE_string("kernel", "", "The name of the architecture ['', 'mix_rbf', 'mix_rq', 'distance', 'dot', 'mix_rq_dot']")

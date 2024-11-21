@@ -1,0 +1,238 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 27 files
+Detected 2 issues that require attention
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+File: MMDGAN/gan/main.py
+--------------------------------------------------------------------------------
+MMDGAN/gan/main.py:8:8: ERROR: Using member tf.app.flags in deprecated module tf.app.flags. tf.flags and tf.app.flags have been removed, please use the argparse or absl modules if you need command line parsing.
+--------------------------------------------------------------------------------
+File: MMDGAN/gan/core/ops.py
+--------------------------------------------------------------------------------
+MMDGAN/gan/core/ops.py:14:11: ERROR: Using member tf.contrib.layers.batch_norm in deprecated module tf.contrib. tf.contrib.layers.batch_norm cannot be converted automatically. tf.contrib will not be distributed with TensorFlow 2.0, please consider an alternative in non-contrib TensorFlow, a community-maintained repository such as tensorflow/addons, or fork the required code.
+================================================================================
+Detailed log follows:
+
+================================================================================
+================================================================================
+Input tree: 'MMDGAN/'
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/compute_scores.py'
+ outputting to 'MMDGAN/gan/compute_scores.py'
+--------------------------------------------------------------------------------
+
+8:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/main.py'
+ outputting to 'MMDGAN/gan/main.py'
+--------------------------------------------------------------------------------
+
+6:0: INFO: Changed import from '\nimport tensorflow as tf\n' to '\nimport tensorflow.compat.v1 as tf\n'.
+8:8: ERROR: Using member tf.app.flags in deprecated module tf.app.flags. tf.flags and tf.app.flags have been removed, please use the argparse or absl modules if you need command line parsing.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/summarize.py'
+ outputting to 'MMDGAN/gan/summarize.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/utils/utils.py'
+ outputting to 'MMDGAN/gan/utils/utils.py'
+--------------------------------------------------------------------------------
+
+12:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/utils/__init__.py'
+ outputting to 'MMDGAN/gan/utils/__init__.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/utils/misc.py'
+ outputting to 'MMDGAN/gan/utils/misc.py'
+--------------------------------------------------------------------------------
+
+12:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/utils/scorer.py'
+ outputting to 'MMDGAN/gan/utils/scorer.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/utils/timer.py'
+ outputting to 'MMDGAN/gan/utils/timer.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/utils/get_test_images.py'
+ outputting to 'MMDGAN/gan/utils/get_test_images.py'
+--------------------------------------------------------------------------------
+
+1:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/ops.py'
+ outputting to 'MMDGAN/gan/core/ops.py'
+--------------------------------------------------------------------------------
+
+1:0: INFO: Changed import from 'from tensorflow.python.framework import ops\n' to 'from tensorflow.compat.v1.python.framework import ops\n'.
+14:11: ERROR: Using member tf.contrib.layers.batch_norm in deprecated module tf.contrib. tf.contrib.layers.batch_norm cannot be converted automatically. tf.contrib will not be distributed with TensorFlow 2.0, please consider an alternative in non-contrib TensorFlow, a community-maintained repository such as tensorflow/addons, or fork the required code.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/__init__.py'
+ outputting to 'MMDGAN/gan/core/__init__.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/model.py'
+ outputting to 'MMDGAN/gan/core/model.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/architecture.py'
+ outputting to 'MMDGAN/gan/core/architecture.py'
+--------------------------------------------------------------------------------
+
+8:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/wgan_gp.py'
+ outputting to 'MMDGAN/gan/core/wgan_gp.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/mmd.py'
+ outputting to 'MMDGAN/gan/core/mmd.py'
+--------------------------------------------------------------------------------
+
+8:0: INFO: Changed import from '\nimport tensorflow as tf\n' to '\nimport tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/pipeline.py'
+ outputting to 'MMDGAN/gan/core/pipeline.py'
+--------------------------------------------------------------------------------
+
+10:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/cramer.py'
+ outputting to 'MMDGAN/gan/core/cramer.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/resnet/__init__.py'
+ outputting to 'MMDGAN/gan/core/resnet/__init__.py'
+--------------------------------------------------------------------------------
+
+2:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/resnet/block.py'
+ outputting to 'MMDGAN/gan/core/resnet/block.py'
+--------------------------------------------------------------------------------
+
+5:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/resnet/ops/batchnorm.py'
+ outputting to 'MMDGAN/gan/core/resnet/ops/batchnorm.py'
+--------------------------------------------------------------------------------
+
+6:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/resnet/ops/linear.py'
+ outputting to 'MMDGAN/gan/core/resnet/ops/linear.py'
+--------------------------------------------------------------------------------
+
+4:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/resnet/ops/conv1d.py'
+ outputting to 'MMDGAN/gan/core/resnet/ops/conv1d.py'
+--------------------------------------------------------------------------------
+
+4:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/resnet/ops/__init__.py'
+ outputting to 'MMDGAN/gan/core/resnet/ops/__init__.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/resnet/ops/cond_batchnorm.py'
+ outputting to 'MMDGAN/gan/core/resnet/ops/cond_batchnorm.py'
+--------------------------------------------------------------------------------
+
+4:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/resnet/ops/layernorm.py'
+ outputting to 'MMDGAN/gan/core/resnet/ops/layernorm.py'
+--------------------------------------------------------------------------------
+
+6:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/resnet/ops/deconv2d.py'
+ outputting to 'MMDGAN/gan/core/resnet/ops/deconv2d.py'
+--------------------------------------------------------------------------------
+
+4:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'MMDGAN/gan/core/resnet/ops/conv2d.py'
+ outputting to 'MMDGAN/gan/core/resnet/ops/conv2d.py'
+--------------------------------------------------------------------------------
+
+7:0: INFO: Changed import from 'import tensorflow as tf\n' to 'import tensorflow.compat.v1 as tf\n'.
+--------------------------------------------------------------------------------
+

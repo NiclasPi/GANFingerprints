@@ -1,6 +1,8 @@
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from tensorflow.python.framework import ops
 from utils.misc import variable_summaries
-from .mmd import _eps, tf
+from .mmd import _eps
 
 
 class batch_norm(object):
@@ -11,13 +13,10 @@ class batch_norm(object):
       self.name = name
 
   def __call__(self, x, train=True):
-    return tf.contrib.layers.batch_norm(x,
-                      decay=self.momentum, 
-                      updates_collections=None,
+    return tf.layers.batch_normalization(x,
+                      momentum=self.momentum,
                       epsilon=self.epsilon,
-                      scale=True,
-                      is_training=train,
-                      scope=self.name)
+                      scale=True)
 
 def binary_cross_entropy(preds, targets, name=None):
     """Computes binary cross entropy given `preds`.

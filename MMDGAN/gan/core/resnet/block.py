@@ -2,7 +2,7 @@
 Based on https://github.com/igul222/improved_wgan_training/blob/master/gan_64x64.py.
 """
 import functools
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from core.resnet.ops import conv2d, batchnorm, layernorm
 
 

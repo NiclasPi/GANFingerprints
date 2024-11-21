@@ -9,7 +9,7 @@ import pprint
 import scipy.misc
 import numpy as np
 from time import gmtime, strftime
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from six.moves import xrange
 
 pp = pprint.PrettyPrinter()

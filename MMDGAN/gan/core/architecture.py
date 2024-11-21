@@ -5,7 +5,7 @@ Created on Wed Jan 10 14:34:47 2018
 
 @author: mikolajbinkowski
 """
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from core.ops import batch_norm, conv2d, deconv2d, linear, lrelu
 from utils.misc import conv_sizes
 # Generators

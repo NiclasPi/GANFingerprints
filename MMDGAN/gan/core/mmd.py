@@ -5,7 +5,7 @@ from __future__ import division
 
 _eps=1.0e-5
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 import numpy as np
 from .ops import dot, sq_sum
 

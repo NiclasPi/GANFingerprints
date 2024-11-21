@@ -6,10 +6,11 @@ Released under the MIT license.
 from __future__ import division
 import random
 import pprint
-import scipy.misc
+import scipy  # TODO: scipy.misc is deprecated and the image related functions are no longer included
+from PIL import Image
 import numpy as np
 from time import gmtime, strftime
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from six.moves import xrange
 
 pp = pprint.PrettyPrinter()
@@ -20,7 +21,9 @@ def inverse_transform(images):
 
 def save_images(images, size, image_path):
     merged = merge(inverse_transform(images), size)
-    return scipy.misc.imsave(image_path, merged)
+    if len(merged.shape) > 3:
+        raise RuntimeError('save_images only supports one image')
+    Image.fromarray((merged * 255).astype(np.uint8)).save(image_path)
 
 
 def merge(images, size):

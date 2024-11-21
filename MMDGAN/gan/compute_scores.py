@@ -5,7 +5,7 @@ import numpy as np
 from scipy import linalg
 from six.moves import range, urllib
 from sklearn.metrics.pairwise import polynomial_kernel
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from tqdm import tqdm
 
 
